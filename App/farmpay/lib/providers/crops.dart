@@ -1,3 +1,4 @@
+import 'package:farming_toolkit/widgets/crop_item.dart';
 import 'package:flutter/material.dart';
 import './crop.dart';
 
@@ -35,9 +36,29 @@ class Crops with ChangeNotifier {
     ),
   ];
 
+//  var _showFavoritesOnly = false;
+
   List<Crop> get items {
+//    if(_showFavoritesOnly)
+//      {
+//        return _items.where((CropItem) => CropItem.isFavorite).toList();
+//      }
     return [..._items];
   }
+
+  List<Crop> get favoriteItems {
+    return _items.where((CropItem) => CropItem.isFavorite).toList();
+  }
+
+//  void showFavoritesOnly() {
+//    _showFavoritesOnly = true;
+//    notifyListeners();
+//  }
+//
+//  void showAll() {
+//    _showFavoritesOnly = false;
+//    notifyListeners();
+//  }
 
   addCrop() {
     // _items.add(value);

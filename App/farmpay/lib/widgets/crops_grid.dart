@@ -4,10 +4,14 @@ import 'crop_item.dart';
 import '../providers/crops.dart';
 
 class CropsGrid extends StatelessWidget {
+
+  final bool showFavs;
+
+  CropsGrid(this.showFavs);
   @override
   Widget build(BuildContext context) {
     final cropsData = Provider.of<Crops>(context);
-    final crops = cropsData.items;
+    final crops = showFavs ? cropsData.favoriteItems : cropsData.items;
     return GridView.builder(
       padding: const EdgeInsets.all(10.0),
       itemCount: crops.length,
