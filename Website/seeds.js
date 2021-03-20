@@ -74,9 +74,9 @@ function seedDB() {
                     console.log(err)
                 } else {
                     if (count < 2)
-                        bid.userName = farmerData[0].userName;
+                        bid.madeBy.username = farmerData[0].userName;
                     else
-                        bid.madeBy = farmerData[1];
+                        bid.madeBy.username = farmerData[1];
                 }
             });
         });

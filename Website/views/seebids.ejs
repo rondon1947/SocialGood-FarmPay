@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,16 +37,17 @@
         </div>
     </div>
 </nav>
+
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1 style="color: rgb(23, 19, 27);text-align: center;"><strong>Bid Created By:</strong></h1>
+            <h1 style="color: rgb(23, 19, 27);text-align: center;"><strong>Auctions Created by Farmers:</strong></h1>
             <table class="table table-bordered table-striped table-hover" style="background-color:#6bd8ab;">
                 <thead style="background-color: rgb(42, 173, 97);">
                 <tr>
                     <th scope="col" colspan="2">Farmer Information</th>
                     <th scope="col" colspan="2">Crop Information</th>
-                    <th scope="col">Wholesaler</th>
+                    <th scope="col">Other Wholesalers</th>
                     <th scope="col">Actions</th>
                 </tr>
                 <tr>
@@ -54,14 +56,15 @@
                     <th scope="col">Crop Name</th>
                     <th scope="col">Price of Crop(Market MSP)</th>
                     <th scope="col">Bids Offered</th>
+                    <th scope="col">Place your Bid here:</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 <% bids.forEach(function (bid) { %>
                 <tr>
-                <th scope="row"><%= bid.madeBy.userName %></th>
-                <td><%= bid.madeBy.address %></td>
+                <th scope="row"> Bhrupinder Singh</th>
+                <td> Patiala, Punjab</td>
                 <td><%= bid.crop.cropName %></td>
                 <td><%= bid.pricePerUnit %>(<%= bid.crop.cropMSP %>)</td>
                 <td>
@@ -77,6 +80,7 @@
                     <% }); %>
                 </td>
                 <td>
+                    <input name="bid" type="text" placeholder="Rupees" maxlength="4" size="4">
                     <button type="button" class="btn btn-success"><strong><em>BID</em></strong>
                     </button>
                 </td>
