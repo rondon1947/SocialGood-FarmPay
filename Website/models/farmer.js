@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const farmerSchema = new mongoose.Schema({
-    name: {
+    userName: {
         type: String,
         required: true
     },
@@ -10,10 +10,10 @@ const farmerSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    password: {
-        type: String,
-        required: true
-    },
+    // password: {
+    //     type: String,
+    //     required: true
+    // },
     address: {
         type: String,
         required: true,

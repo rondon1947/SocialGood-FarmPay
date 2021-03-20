@@ -1,9 +1,9 @@
-const User = require('../models/comment');
-const Bid = require('../models/campground');
-const Crop = require('../models/comment');
-const Farmer = require('../models/campground');
-const Refill = require('../models/comment');
-const Transaction = require('../models/campground');
+const User = require('../models/user');
+// const Bid = require('../models/campground');
+// const Crop = require('../models/comment');
+// const Farmer = require('../models/campground');
+// const Refill = require('../models/comment');
+// const Transaction = require('../models/campground');
 
 module.exports = {
     isLoggedIn: function(req, res, next){

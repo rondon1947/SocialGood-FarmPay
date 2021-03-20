@@ -42,7 +42,7 @@
             <table class="table table-bordered table-striped table-hover" style="background-color: rgb(102, 218, 13);">
                 <thead style="background-color: rgb(186, 212, 38);">
                 <tr>
-                    <th scope="col" >Sr. No.</th>
+<!--                    <th scope="col" >Sr. No.</th>-->
                     <th scope="col" >Crop Name</th>
                     <th scope="col">Total Stock</th>
                     <th scope="col">Refill Stock</th>
@@ -50,16 +50,17 @@
 
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Bootstrap 4 CDN and Starter Template</td>
-                    <td>Cristina</td>
+                <% user.stocks.forEach(function(stock) { %>
+                    <tr>
+<!--                        <th scope="row">1</th>-->
+                        <td><%= stock.crop.cropName %></td>
+                        <td><%= stock.quantity %></td>
+                        <td>
+                            <input name="refillQuantity" type="text" placeholder="Units" maxlength="4" size="4">
+                            <button type="button" class="btn btn-success"><strong>+</strong></button></td>
+                    </tr>
+                <% }) %>
 
-
-                    <td>
-                        <input type="text" placeholder="Units" maxlength="4" size="4">
-                        <button type="button" class="btn btn-success"><strong>+</strong></button>
-                </tr>
                 <tr>
                     <th scope="row">1</th>
                     <td>Bootstrap 4 CDN and Starter Template</td>

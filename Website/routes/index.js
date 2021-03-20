@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const User = require('../models/comment');
-const Bid = require('../models/campground');
-const Crop = require('../models/comment');
-const Farmer = require('../models/campground');
-const Refill = require('../models/comment');
-const Transaction = require('../models/campground');
+const User = require('../models/user.js');
+// const Bid = require('../models/campground');
+// const Crop = require('../models/comment');
+// const Farmer = require('../models/campground');
+// const Refill = require('../models/comment');
+// const Transaction = require('../models/campground');
 
 //root route
 router.get("/", function (req, res) {
@@ -20,18 +20,22 @@ router.get("/register", function (req, res) {
 
 //handle sign up logic
 router.post("/register", function (req, res) {
-    const newUser = new User({name: req.body.name}, {email: req.body.email}, {address: req.body.address});
-    if (req.body.adminCode === process.env.ADMIN_CODE) {
-        newUser.isAdmin = true;
-    }
+    console.log(req.body);
+    const username = req.body.username;
+    const email = req.body.email;
+    const address = req.body.address;
+    const newUser = new User({username: username, email: email, address: address});
+    console.log(newUser);
     User.register(newUser, req.body.password, function (err, user) {
         if (err) {
+            console.log("Hmko kuch nhi aata..");
             console.log(err);
             return res.render("register", {error: err.message});
         }
         passport.authenticate("local")(req, res, function () {
-            req.flash("success", "Successfully Signed Up! Welcome to YelpCamp! Nice to meet you " + req.body.username);
-            res.redirect("/campgrounds");
+            console.log("Sab sahi hai!!")
+            req.flash("success", "Successfully Signed Up! Welcome to YelpCamp! Nice to meet you " + req.body.userName);
+            res.render("dashboard", {username: username});
         });
     });
 });
@@ -43,13 +47,9 @@ router.get("/login", function(req, res){
 });
 
 //handling login logic
-router.post("/login", passport.authenticate("local",
-    {
-        successRedirect: "/dashboard",
-        failureRedirect: "/login",
-        failureFlash: true,
-        successFlash: 'Welcome to Farming Toolkit!'
-    }), function(req, res){
+router.post("/login", passport.authenticate("local"), function (req, res){
+    console.log("Sab theek");
+    res.redirect("")
 });
 
 router.get("/logout", function(req, res){

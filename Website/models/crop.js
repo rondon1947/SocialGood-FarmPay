@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const cropSchema = new mongoose.Schema({
-    name: {
+    cropName: {
         type: String,
         required: true,
         unique: true

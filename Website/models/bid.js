@@ -23,6 +23,15 @@ const bidSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    offersBy: [
+        {
+            id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User",
+            },
+            amount: Number,
+        },
+    ],
     acceptedBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
