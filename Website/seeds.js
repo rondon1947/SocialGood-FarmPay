@@ -74,7 +74,7 @@ function seedDB() {
                     console.log(err)
                 } else {
                     if (count < 2)
-                        bid.madeBy = farmerData[0];
+                        bid.userName = farmerData[0].userName;
                     else
                         bid.madeBy = farmerData[1];
                 }
