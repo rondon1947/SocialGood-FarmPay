@@ -71,6 +71,14 @@ class CropItem extends StatelessWidget {
               color: Theme.of(context).accentColor,
               onPressed: () {
                 cart.addItem(crop.cropId, crop.cropMSP, crop.cropName);
+                Scaffold.of(context).showSnackBar(
+                    SnackBar(
+                        content: Text ('Added Item to Cart!'),
+                      duration: Duration(seconds: 3),
+                      action: SnackBarAction(label: 'UNDO',onPressed: () {
+                        cart.removeSingleItem(crop.cropId);
+                      },),
+                    ));
               },
             ),
           ),
