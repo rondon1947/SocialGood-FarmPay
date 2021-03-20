@@ -1,9 +1,11 @@
+import 'package:farming_toolkit/providers/cart.dart';
 import 'package:farming_toolkit/providers/crop.dart';
 
 import '../screens/crop_detail_screen.dart';
 import 'package:flutter/material.dart';
 import '../providers/crops.dart';
 import 'package:provider/provider.dart';
+import '../providers/cart.dart';
 
 class CropItem extends StatelessWidget {
 //  final String cropId;
@@ -29,6 +31,7 @@ class CropItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final crop = Provider.of<Crop>(context);
+    final cart = Provider.of<Cart>(context);
     String imageURL = urlMap[crop.cropName];
     return Consumer<Crop>(
       builder: (ctx, crop, child) => ClipRRect(
@@ -66,7 +69,9 @@ class CropItem extends StatelessWidget {
             trailing: IconButton(
               icon: Icon(Icons.shopping_cart),
               color: Theme.of(context).accentColor,
-              onPressed: () {},
+              onPressed: () {
+                cart.addItem(crop.cropId, crop.cropMSP, crop.cropName);
+              },
             ),
           ),
         ),
