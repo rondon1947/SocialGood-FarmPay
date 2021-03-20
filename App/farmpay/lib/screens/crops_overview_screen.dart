@@ -1,3 +1,5 @@
+import 'package:farming_toolkit/widgets/app_drawer.dart';
+
 import '../widgets/crops_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -5,6 +7,7 @@ import 'package:provider/provider.dart';
 import '../widgets/badge.dart';
 import '../providers/cart.dart';
 import './cart_screen.dart';
+import '../widgets/app_drawer.dart';
 
 enum FilterOptions {
   Favorites,
@@ -62,6 +65,7 @@ class _CropsOverviewScreenState extends State<CropsOverviewScreen> {
           )
         ],
       ),
+      drawer: AppDrawer(),
       body: CropsGrid(_showOnlyFavorites),
     );
   }

@@ -64,4 +64,9 @@ void removeItem(String cropId) {
     notifyListeners();
 }
 
+void clear() {
+    _items = {};
+    notifyListeners();
+}
+
 }

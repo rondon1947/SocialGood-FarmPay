@@ -5,6 +5,8 @@ import 'screens/crop_detail_screen.dart';
 import 'screens/cart_screen.dart';
 import 'providers/crops.dart';
 import 'providers/cart.dart';
+import 'providers/orders.dart';
+import 'screens/orders_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,6 +23,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (ctx) => Cart(),
         ),
+        ChangeNotifierProvider(
+          create: (ctx) => Orders(),
+        ),
       ],
       child: MaterialApp(
         title: 'Farming Toolkit',
@@ -33,6 +38,7 @@ class MyApp extends StatelessWidget {
         routes: {
           CropDetailScreen.routeName: (ctx) => CropDetailScreen(),
           CartScreen.routeName: (ctx) => CartScreen(),
+          OrdersScreen.routeName: (ctx) => OrdersScreen(),
         },
       ),
     );
