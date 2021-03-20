@@ -27,8 +27,8 @@ FarmPay, as the name suggests is an smartphone application cum website made in c
 
 ## The different fields of our project ( and also how to use them ) include:
 
-### App's README -> [Click Here](http://egazette.nic.in/WriteReadData/2020/222039.pdf)
-### Website's README -> [Click Here](http://egazette.nic.in/WriteReadData/2020/222039.pdf)
+### App's README -> [Click Here](App/README.md)
+### Website's README -> [Click Here](Website/README.md)
 
 
 ## Authors
