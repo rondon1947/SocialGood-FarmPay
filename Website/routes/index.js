@@ -48,8 +48,9 @@ router.get("/login", function(req, res){
 
 //handling login logic
 router.post("/login", passport.authenticate("local"), function (req, res){
+    console.log(req.body);
     console.log("Sab theek");
-    res.redirect("")
+    res.render("dashboard", {username: req.body.username});
 });
 
 router.get("/logout", function(req, res){

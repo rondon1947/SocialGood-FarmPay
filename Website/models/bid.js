@@ -2,26 +2,29 @@ const mongoose = require("mongoose");
 
 const bidSchema = new mongoose.Schema({
     madeBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Farmer",
-        required: true,
+        username: {
+            type: String,
+        },
+        address: {
+            type: String,
+        },
+        email: {
+            type: String,
+        },
     },
     crop: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Crop",
-        required: true,
+        cropName: {
+            type: String,
+        },
+        cropMSP: {
+            type: Number,
+        }
     },
     quantity: {
         type: Number,
-        required: true
     },
     pricePerUnit: {
         type: Number,
-        required: true
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now,
     },
     offersBy: [
         {
@@ -33,12 +36,17 @@ const bidSchema = new mongoose.Schema({
         },
     ],
     acceptedBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        required: true,
+        username: {
+            type: String,
+        },
+        address: {
+            type: String,
+        },
+        email: {
+            type: String,
+        },
     },
 });
 
-const Bid = new mongoose.model("Bid", bidSchema);
 
-module.exports = Bid;
+module.exports = mongoose.model("Bid", bidSchema);

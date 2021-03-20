@@ -10,23 +10,17 @@ const farmerSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    // password: {
-    //     type: String,
-    //     required: true
-    // },
     address: {
         type: String,
         required: true,
     },
-    cropsGrown: [
-        {
-            crop: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "Crop"
-            },
-            quantity: Number,
-        }
-    ],
+    cropsGrown: {
+        crop: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Crop"
+        },
+        quantity: Number
+    },
     bidsCreated: [
         {
             type: mongoose.Schema.Types.ObjectId,
@@ -41,6 +35,4 @@ const farmerSchema = new mongoose.Schema({
     ],
 });
 
-const Farmer = new mongoose.model("Farmer", farmerSchema);
-
-module.exports = Farmer;
+module.exports = mongoose.model("Farmer", farmerSchema);

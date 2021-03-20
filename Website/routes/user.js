@@ -12,4 +12,8 @@ router.get("/", function (req, res) {
    res.render("dashboard");
 });
 
+router.get("/seebids", function (req, res) {
+   res.render("seebids", )
+});
+
 module.exports = router;

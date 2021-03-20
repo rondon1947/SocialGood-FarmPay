@@ -17,6 +17,7 @@ dotenvLoad();
 
 const userRoutes = require("./routes/user"),
     indexRoutes = require("./routes/index");
+const seedDB = require("./seeds");
 
 mongoose.Promise = global.Promise;
 
@@ -26,13 +27,13 @@ mongoose.connect(databaseUri, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => console.log(`Database connected`))
     .catch(err => console.log(`Database connection error: ${err.message}`));
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: false}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride('_method'));
 app.use(cookieParser('secret'));
 app.locals.moment = require('moment');
-// seedDB(); //seed the database
+seedDB(); //seed the database
 
 app.use(require("express-session")({
     secret: "Jai Jawaan Jai Kisaan!",
