@@ -56,7 +56,7 @@ class _CropsOverviewScreenState extends State<CropsOverviewScreen> {
           ),
             child:  IconButton(
               icon: Icon(
-                Icons.shopping_cart,
+                Icons.hardware,
               ),
               onPressed: () {
                 Navigator.of(context).pushNamed( CartScreen.routeName);

@@ -12,7 +12,7 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context);
     return Scaffold(appBar: AppBar(
-      title: Text('Checkout'),
+      title: Text('Bidded Crops'),
     ),
       body: Column(children: <Widget>[
         Card(margin: EdgeInsets.all(15),
@@ -29,7 +29,7 @@ class CartScreen extends StatelessWidget {
                ),
                 backgroundColor: Theme.of(context).primaryColor,
               ),
-              FlatButton(child: Text('ORDER NOW'),
+              FlatButton(child: Text('DEAL NOW'),
                 onPressed: () {
                 Provider.of<Orders>(context, listen: false).addOrder(
                   cart.items.values.toList(),

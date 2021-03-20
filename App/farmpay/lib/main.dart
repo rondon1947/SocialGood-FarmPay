@@ -7,6 +7,8 @@ import 'providers/crops.dart';
 import 'providers/cart.dart';
 import 'providers/orders.dart';
 import 'screens/orders_screen.dart';
+import 'screens/user_crops_screen.dart';
+import 'screens/edit_crops_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -39,6 +41,8 @@ class MyApp extends StatelessWidget {
           CropDetailScreen.routeName: (ctx) => CropDetailScreen(),
           CartScreen.routeName: (ctx) => CartScreen(),
           OrdersScreen.routeName: (ctx) => OrdersScreen(),
+          UserCropsScreen.routeName: (ctx) => UserCropsScreen(),
+          EditCropsScreen.routeName: (ctx) => EditCropsScreen(),
         },
       ),
     );
