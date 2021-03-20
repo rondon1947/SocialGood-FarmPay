@@ -16,8 +16,7 @@ const farmerSchema = new mongoose.Schema({
     },
     cropsGrown: {
         crop: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Crop"
+            type:"String",
         },
         quantity: Number
     },

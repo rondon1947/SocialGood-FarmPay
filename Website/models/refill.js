@@ -3,16 +3,18 @@ const mongoose = require("mongoose");
 const stockRefillSchema = new mongoose.Schema({
     madeBy: {
         id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
-            required: true,
+            // type: mongoose.Schema.Types.ObjectId,
+            // ref: "User",
+            // required: true,
+            type: "String"
         },
         name: String,
     },
     crop: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Crop",
-        required: true,
+        // type: mongoose.Schema.Types.ObjectId,
+        // ref: "Crop",
+        // required: true,
+        type: "String"
     },
     quantity: {
         type: Number,

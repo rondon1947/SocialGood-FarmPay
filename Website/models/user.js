@@ -19,8 +19,9 @@ const userSchema = new mongoose.Schema({
     stocks: [
         {
             crop: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "Crop",
+                // type: mongoose.Schema.Types.ObjectId,
+                // ref: "Crop",
+                type: "String"
             },
             quantity: Number,
         },
