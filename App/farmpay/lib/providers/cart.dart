@@ -59,4 +59,9 @@ void addItem (String cropId, double price, String title,) {
     notifyListeners();
 }
 
+void removeItem(String cropId) {
+    _items.remove(cropId);
+    notifyListeners();
+}
+
 }

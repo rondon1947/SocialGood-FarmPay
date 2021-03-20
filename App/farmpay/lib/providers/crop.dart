@@ -5,6 +5,7 @@ class Crop with ChangeNotifier {
   final String cropName;
   final double cropMSP;
   final double sellingPrice;
+  final String imageURL;
   bool isFavorite;
 
   Crop({
@@ -12,6 +13,7 @@ class Crop with ChangeNotifier {
     @required this.cropName,
     @required this.cropMSP,
     @required this.sellingPrice,
+    @required this.imageURL,
     this.isFavorite = false,
   });
 
