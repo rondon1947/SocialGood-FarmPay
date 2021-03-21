@@ -9,12 +9,13 @@
 Our App will help the Farmers to easily sell their crops, with a good profit, by providing them with a platform to create an auction-type selling of their crops, where bids are made by every interested wholesaler. Also, we aim to provide knowledge to our Farmers about latest farming techniques and other information related to the agricultural team. Also, we try to help them legally too, by providing them legal assisstance about contract farming. And as an extra feature, we are planning to add a community feature for farmers from a particular area so that they can interact with each other and also provide them assistance in the proper dispose of the stubble by acting as a mediator between them and companies that use these crop-leftovers to make organic compost, thus, preventing stubble burning.
 
 ## Glimses of Website:
-![Landing Page](images/landing.png?raw=true)
-![Sign Up Page](images/up.png?raw=true)
-![Sign In Page](images/in.png?raw=true)
-![Dashboard](images/Website.gif?raw=true)
-![Database](images/database.png?raw=true)
-![Auction & Bidding](images/auction.png?raw=true)
+![Image 1](images/1.png?raw=true)
+![Image 2](images/2.png?raw=true)
+![Image 3](images/3.png?raw=true)
+![Image 4](images/4.png?raw=true)
+![Image 5](images/5.png?raw=true)
+![Image 6](images/6.png?raw=true)
+![Image 7](images/7.png?raw=true)
 
 ## Requirements:
 
