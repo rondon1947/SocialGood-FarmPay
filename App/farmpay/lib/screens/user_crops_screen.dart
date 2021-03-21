@@ -29,6 +29,7 @@ class UserCropsScreen extends StatelessWidget{
             itemBuilder: (_, i) => Column(
                 children: [
                   UserCropItem(
+                    cropsData.items[i].cropId,
                 cropsData.items[i].cropName,
                 cropsData.items[i].imageURL,
             ),

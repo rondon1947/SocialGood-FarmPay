@@ -70,8 +70,28 @@ class Crops with ChangeNotifier {
 //    notifyListeners();
 //  }
 
-  addCrop() {
-    // _items.add(value);
+  void addCrop(Crop crop) {
+    final newCrop = Crop(
+        cropId: DateTime.now().toString(),
+        cropName: crop.cropName,
+        cropMSP: (crop.cropMSP * 0.9),
+        sellingPrice: crop.sellingPrice,
+        imageURL: crop.imageURL
+    );
+    _items.add(newCrop);
     notifyListeners();
   }
+
+  void updateCrop(String id,Crop newCrop) {
+    final cropIndex = _items.indexWhere((crop) => crop.cropId == id);
+    if(cropIndex>=0) {
+      _items[cropIndex] = newCrop;
+      notifyListeners();
+    }
+    else {
+      print('...');
+    }
+
+  }
+
 }
