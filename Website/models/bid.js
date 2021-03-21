@@ -28,7 +28,7 @@ const bidSchema = new mongoose.Schema({
     },
     offersBy: [
         {
-            id: {
+            bidder: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "User",
             },

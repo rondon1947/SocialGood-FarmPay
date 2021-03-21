@@ -22,63 +22,84 @@ var cropData = [
     }
 ];
 
+var farmerData = [
+    {
+        username: 'Burpinder Singh',
+        email: 'punjab.kisaan@gmail.com',
+        address: 'Patiala',
+    },
+    {
+        username: 'Ramlal Singh',
+        email: 'bihar.kisaan@gmail.com',
+        address: 'Nawada',
+    },
+    {
+        username: 'Ramakrishna Malhaar',
+        email: 'kerela.kisaan@gmail.com',
+        address: 'Cochin',
+    },
+    {
+        username: 'Baswaan Samant',
+        email: 'assam.kisaan@gmail.com',
+        address: 'Bodonagar',
+    },
+];
+
 var bidData = [
     {
         crop: cropData[0],
         quantity: 180.00,
         pricePerUnit: 12.00,
         createdAt: Date.now(),
+        madeBy: {
+            username: farmerData[0].username,
+            email: farmerData[0].email,
+            address: farmerData[0].address,
+        },
     },
     {
         crop: cropData[1],
         quantity: 580.00,
         pricePerUnit: 14.00,
         createdAt: Date.now(),
+        madeBy: {
+            username: farmerData[1].username,
+            email: farmerData[1].email,
+            address: farmerData[1].address,
+        },
     },
     {
         crop: cropData[2],
         quantity: 320.00,
         pricePerUnit: 15.00,
         createdAt: Date.now(),
+        madeBy: {
+            username: farmerData[2].username,
+            email: farmerData[2].email,
+            address: farmerData[2].address,
+        },
     },
     {
         crop: cropData[3],
         quantity: 1690.00,
         pricePerUnit: 11.00,
         createdAt: Date.now(),
-    },
-];
-
-var farmerData = [
-    {
-        userName: 'Burpinder Singh',
-        email: 'punjab.kisaan@gmail.com',
-        address: 'Patiala',
-    },
-    {
-        userName: 'Ramlal Singh',
-        email: 'bihar.kisaan@gmail.com',
-        address: 'Nawada',
+        madeBy: {
+            username: farmerData[3].username,
+            email: farmerData[3].email,
+            address: farmerData[3].address,
+        },
     },
 ];
 
 function seedDB() {
-    var count = 0;
-    Bid.remove({}, function (err) {
-        if (err) {
-            console.log(err);
-        }
-        bidData.forEach(function (seed) {
-            Bid.create(seed, function (err, bid) {
-                if (err) {
-                    console.log(err)
-                } else {
-                    if (count < 2)
-                        bid.madeBy.username = farmerData[0].userName;
-                    else
-                        bid.madeBy.username = farmerData[1];
-                }
-            });
+    Bid.remove({}, function () {
+    });
+    bidData.forEach(function (seed) {
+        Bid.create(seed, function (err, bid) {
+            if (err) {
+                console.log(err)
+            }
         });
     });
 }

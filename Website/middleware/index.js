@@ -1,10 +1,12 @@
+const express = require("express");
+const router = express.Router();
+const passport = require("passport");
 const User = require('../models/user');
-// const Bid = require('../models/campground');
+const Bid = require('../models/bid');
 // const Crop = require('../models/comment');
 // const Farmer = require('../models/campground');
 // const Refill = require('../models/comment');
 // const Transaction = require('../models/campground');
-
 module.exports = {
     isLoggedIn: function(req, res, next){
         if(req.isAuthenticated()){
@@ -13,18 +15,18 @@ module.exports = {
         req.flash('error', 'You must be signed in to do that!');
         res.redirect('/login');
     },
-    checkUserRefill: function(req, res, next){
-        Refill.findById(req.params.id, function(err, foundRefill){
-            if(err || !foundRefill){
+    checkUserCampground: function(req, res, next){
+        User.findById(req.params.id, function(err, foundCampground){
+            if(err || !foundCampground){
                 console.log(err);
-                req.flash('error', 'Sorry, this refill request does not exist!');
-                res.redirect('/dashboard');
-            } else if(foundRefill.author.id.equals(req.user._id)){
-                req.refill = foundRefill;
+                req.flash('error', 'Sorry, that campground does not exist!');
+                res.redirect('/campgrounds');
+            } else if(foundCampground.author.id.equals(req.user._id) || req.user.isAdmin){
+                req.campground = foundCampground;
                 next();
             } else {
                 req.flash('error', 'You don\'t have permission to do that!');
-                res.redirect('/dashboard' + req.params.id);
+                res.redirect('/campgrounds/' + req.params.id);
             }
         });
     },
@@ -43,4 +45,20 @@ module.exports = {
             }
         });
     },
+    isAdmin: function(req, res, next) {
+        if(req.user.isAdmin) {
+            next();
+        } else {
+            req.flash('error', 'This site is now read only thanks to spam and trolls.');
+            res.redirect('back');
+        }
+    },
+    isSafe: function(req, res, next) {
+        if(req.body.image.match(/^https:\/\/images\.unsplash\.com\/.*/)) {
+            next();
+        }else {
+            req.flash('error', 'Only images from images.unsplash.com allowed.\nSee https://youtu.be/Bn3weNRQRDE for how to copy image urls from unsplash.');
+            res.redirect('back');
+        }
+    }
 };

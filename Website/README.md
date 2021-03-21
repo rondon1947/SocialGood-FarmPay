@@ -10,6 +10,9 @@ Our Website will help Wholesalers to see a list of crops that every farmer is se
 #### (It is to be noted that the bid which any wholesaler makes, should always be higher than the current MSP of the crop.) 
 ALso, wholesalers can recheck their stocks anytime and if needed, they can create a refill request which will be visible to all other wholesalers, who can accept these requests if they want and have the required stocks. Also the wholesalers can see all their previous transactions.  
 
+## Website Dashboard:
+![Dashboard](images/Website.gif?raw=true)
+
 ## Further improvements in the Future:
 
 - **Converting app language to all possible regional languages of India for easier use by the farmers.** -

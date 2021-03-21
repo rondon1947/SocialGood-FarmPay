@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,29 +61,35 @@
                 </thead>
                 <tbody>
                 <% bids.forEach(function (bid) { %>
-                <tr>
-                <th scope="row"> Bhrupinder Singh</th>
-                <td> Patiala, Punjab</td>
-                <td><%= bid.crop.cropName %></td>
-                <td><%= bid.pricePerUnit %>(<%= bid.crop.cropMSP %>)</td>
-                <td>
-                    <% bid.offersBy.forEach(function(bidder){ %>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="thumbnail">
-                            <img src="<%= bidder.id.userName %>">
-                            <div class="caption">
-                                <h4><%= bidder.amount %></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <% }); %>
-                </td>
-                <td>
-                    <input name="bid" type="text" placeholder="Rupees" maxlength="4" size="4">
-                    <button type="button" class="btn btn-success"><strong><em>BID</em></strong>
-                    </button>
-                </td>
-                </tr>
+                    <tr>
+                        <th scope="row"> <%= bid.madeBy.username %> </th>
+                        <td> <%= bid.madeBy.address %> </td>
+                        <td><%= bid.crop.cropName %></td>
+                        <td><%= bid.pricePerUnit %>(<%= bid.crop.cropMSP %>)</td>
+                        <td>
+                            <% bid.offersBy.forEach(function(bidder){ %>
+                                <div class="col-md-3 col-sm-6">
+                                    <div>
+                                        <div>
+                                            <h4><%= bidder.bidder.username %></h4>
+                                        </div>
+                                        <div>
+                                            <h4><%= bidder.amount %></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }); %>
+                        </td>
+                        <td>
+                            <% console.log(bid._id); %>
+                            <form action="/user/seebids/<%= bid._id %>" method="post">
+
+                                <input name="bidAmt" type="text" placeholder="Rupees" maxlength="4" size="4">
+                                <button type="submit" class="btn btn-success"><strong><em>BID</em></strong>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
                 <% }) %>
                 </tbody>
             </table>
