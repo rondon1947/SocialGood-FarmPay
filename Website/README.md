@@ -20,21 +20,21 @@ ALso, wholesalers can recheck their stocks anytime and if needed, they can creat
 
 ## Requirements:
 
-- 1. node and npm (latest version).
-- 2. MongoDB Local (since not hosted on Cloud).
-- 3. Web Browser.
+- node and npm (latest version).
+- MongoDB Local (since not hosted on Cloud).
+- Web Browser.
 
 
 ## How to run the Website:
 
-- 1. Clone the Repository.
-- 2. Go the Website Folder.
-- 3. Open terminal and type "npm install".
-- 4. Run the command "node app.js"
+- Clone the Repository.
+- Go the Website Folder.
+- Open terminal and type "npm install".
+- Run the command "node app.js"
 
 ## Further improvements in the Future:
 
 - **Host all the contents of the website on Cloud.**
 - **Allow wholesalers to view the farmers and other wholesalers according to Geographic locations and preferences.**
-= **E-Mail notification on the acceptance on stock refill request.**
+- **E-Mail notification on the acceptance on stock refill request.**
 - **Online Payment gateway.**
